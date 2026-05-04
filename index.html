@@ -5,6 +5,32 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Jonas Santiago | Enterprise Data & Analytics Leader</title>
   <style>
+    
+    html {
+  scroll-behavior: smooth;
+    }
+
+    body {
+      opacity: 0;
+      animation: pageFadeIn 0.45s ease forwards;
+    }
+
+    @keyframes pageFadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(8px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    a {
+      transition: all 0.25s ease;
+    }
+
+    
     :root {
       --navy: #061a2f;
       --navy-2: #0b2744;
