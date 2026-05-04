@@ -78,5 +78,28 @@
     <a href="index.html" class="home-btn">&lt; Home</a>
   </div>
 
+  <script>
+  document.querySelectorAll("a[href]").forEach(link => {
+    const href = link.getAttribute("href");
+
+    if (
+      href &&
+      !href.startsWith("#") &&
+      !href.startsWith("http") &&
+      !href.startsWith("mailto:") &&
+      !href.startsWith("tel:")
+    ) {
+      link.addEventListener("click", function (e) {
+        e.preventDefault();
+        document.body.style.opacity = "0";
+        document.body.style.transform = "translateY(8px)";
+        setTimeout(() => {
+          window.location.href = href;
+        }, 220);
+      });
+    }
+  });
+</script>
+
 </body>
 </html>
