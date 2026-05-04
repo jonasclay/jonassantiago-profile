@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Talent Intelligence</title>
+  <style>
+    body { margin:0; background:#061a2f; display:flex; justify-content:center; }
+    img { max-width:100%; height:auto; }
+  </style>
+</head>
+<body>
+  <img src="talent_intelligence.png" alt="Talent Intelligence">
+</body>
+</html>
