@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jonas Santiago | Enterprise Data & Analytics Leader</title>
+  <style>
+    :root {
+      --navy: #061a2f;
+      --navy-2: #0b2744;
+      --teal: #18b7c9;
+      --blue: #246bfe;
+      --gold: #f7b731;
+      --green: #20bf6b;
+      --orange: #fa8231;
+      --purple: #8854d0;
+      --text: #122033;
+      --muted: #617086;
+      --line: #d8e2ef;
+      --panel: #ffffff;
+      --soft: #f4f8fc;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #e9eef5;
+      color: var(--text);
+      line-height: 1.4;
+    }
+
+    .page {
+      width: min(1180px, 96vw);
+      margin: 24px auto;
+      background: white;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.18);
+      overflow: hidden;
+      border-radius: 18px;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, var(--navy), var(--navy-2));
+      color: white;
+      padding: 24px 30px;
+      display: grid;
+      grid-template-columns: 125px 1fr 360px;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .photo {
+      width: 118px;
+      height: 118px;
+      border-radius: 50%;
+      border: 4px solid var(--teal);
+      object-fit: cover;
+      background: #fff;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 38px;
+      line-height: 1;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .role {
+      color: #66e2ef;
+      font-size: 19px;
+      font-weight: 700;
+      margin: 8px 0 8px;
+      text-transform: uppercase;
+    }
+
+    .tagline {
+      font-size: 14px;
+      max-width: 520px;
+      opacity: 0.95;
+    }
+
+    .contact {
+      margin-top: 12px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size: 12px;
+      opacity: 0.9;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 9px;
+    }
+
+    .stat {
+      border: 1px solid rgba(255,255,255,0.22);
+      border-radius: 14px;
+      padding: 10px;
+      background: rgba(255,255,255,0.06);
+    }
+
+    .stat strong {
+      display: block;
+      color: var(--teal);
+      font-size: 21px;
+      line-height: 1;
+    }
+
+    .stat span {
+      display: block;
+      font-size: 11px;
+      margin-top: 5px;
+    }
+
+    .win {
+      grid-column: auto;
+      border-color: rgba(247,183,49,0.8);
+    }
+
+    .win strong { color: var(--gold); }
+
+    .content {
+      padding: 18px 22px 10px;
+      display: grid;
+      grid-template-columns: 34% 66%;
+      gap: 18px;
+      align-items: start;
+    }
+
+    .panel {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 14px;
+      margin-bottom: 12px;
+    }
+
+    .panel.soft { background: var(--soft); }
+
+    h2 {
+      margin: 0 0 12px;
+      font-size: 16px;
+      color: #087b95;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+    }
+
+    p { margin: 0 0 10px; font-size: 12px; }
+
+    ul {
+      margin: 0;
+      padding-left: 17px;
+      font-size: 11.5px;
+    }
+
+    li { margin-bottom: 7px; }
+
+    .cap-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .cap-list li {
+      padding: 7px 0 7px 26px;
+      border-bottom: 1px solid #e5edf7;
+      position: relative;
+    }
+
+    .cap-list li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      top: 7px;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: #e5faff;
+      color: #008ca3;
+      text-align: center;
+      font-weight: 700;
+      font-size: 12px;
+    }
+
+    .tech-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+      font-size: 11px;
+    }
+
+    .tech {
+      background: #f0f6fb;
+      border-radius: 10px;
+      padding: 8px;
+      font-weight: 700;
+      color: #0b426b;
+    }
+
+    .timeline {
+      position: relative;
+      padding-left: 24px;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 8px;
+      top: 8px;
+      bottom: 8px;
+      width: 3px;
+      background: #d7e4f2;
+      border-radius: 999px;
+    }
+
+    .job {
+      position: relative;
+      padding: 0 0 10px 18px;
+    }
+
+    .job::before {
+      content: "";
+      position: absolute;
+      left: -22px;
+      top: 5px;
+      width: 13px;
+      height: 13px;
+      border-radius: 50%;
+      background: var(--teal);
+      border: 3px solid white;
+      box-shadow: 0 0 0 1px #9fc3d6;
+    }
+
+    .job:nth-child(2)::before { background: var(--blue); }
+    .job:nth-child(3)::before { background: var(--purple); }
+    .job:nth-child(4)::before { background: var(--orange); }
+    .job:nth-child(5)::before { background: #1c6dd0; }
+    .job:nth-child(6)::before { background: #16537e; }
+    .job:nth-child(7)::before { background: #006d77; }
+    .job:nth-child(8)::before { background: #b08900; }
+
+    .job-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .company-wrap {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .company-logo {
+      width: 34px;
+      height: 34px;
+      object-fit: contain;
+      border-radius: 8px;
+      background: white;
+      padding: 3px;
+      border: 1px solid #dbe6f2;
+    }
+
+    .company {
+      font-weight: 800;
+      font-size: 14px;
+      color: #0c6d8c;
+    }
+
+    .date {
+      font-size: 11px;
+      color: #0065b3;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .title {
+      font-size: 12px;
+      font-weight: 700;
+      margin: 1px 0 5px;
+    }
+
+    .job ul { font-size: 10.5px; }
+
+    .impact-bar {
+      grid-column: 1 / -1;
+      background: linear-gradient(135deg, var(--navy), #092c4f);
+      color: white;
+      border-radius: 14px;
+      padding: 16px;
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .impact {
+      border-right: 1px solid rgba(255,255,255,0.18);
+      padding-right: 10px;
+      min-height: 65px;
+    }
+
+    .impact:last-child { border-right: none; }
+
+    .impact strong {
+      display: block;
+      color: var(--gold);
+      font-size: 20px;
+      line-height: 1;
+      margin-bottom: 5px;
+    }
+
+    .impact span { font-size: 10px; display: block; }
+
+    .bottom {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: 1.2fr 1fr 1.2fr;
+      gap: 14px;
+    }
+
+    .expertise-chart {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+      font-size: 11px;
+    }
+
+    .pill {
+      padding: 8px 10px;
+      background: #edf7fb;
+      color: #0a6175;
+      border-radius: 999px;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    .quote {
+      background: #edf3f9;
+      border-radius: 14px;
+      padding: 18px;
+      color: #0b3154;
+      font-style: italic;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      min-height: 100%;
+    }
+
+    .footer {
+      padding: 0 22px 22px;
+      display: grid;
+      grid-template-columns: 1fr 1.5fr 1fr;
+      gap: 14px;
+    }
+
+    .footer .panel { margin-bottom: 0; }
+
+    .footer p, .footer li { font-size: 11px; }
+
+    @media (max-width: 900px) {
+      .page { width: 100%; margin: 0; }
+      .hero, .content, .bottom, .footer { grid-template-columns: 1fr; }
+      .stats, .impact-bar { grid-template-columns: repeat(2, 1fr); }
+      .impact { border-right: none; }
+    }
+
+    @media print {
+      body { background: white; }
+      .page { margin: 0; box-shadow: none; border-radius: 0; width: 210mm; min-height: auto; }
+      @page { size: A4; margin: 0; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="hero">
+      <img class="photo" src="20241121_134207.jpg" alt="Jonas Santiago profile photo" />
+      <div>
+        <h1>Jonas Santiago</h1>
+        <div class="role">Enterprise Data & Analytics Leader</div>
+        <div class="tagline">Enterprise Architect and Data & Analytics leader with 30+ years of IT experience and 15+ years in enterprise data architecture, analytics, and platform transformation.</div>
+        <div class="contact">
+          <span>📞 +63 916 271 5173</span>
+          <span>✉️ jonasclayjames@gmail.com</span>
+          <span>📍 Philippines</span>
+        </div>
+      </div>
+      <div class="stats">
+        <div class="stat"><strong>30+</strong><span>Years of IT Experience</span></div>
+        <div class="stat"><strong>15+</strong><span>Years in Data Architecture & Analytics</span></div>
+        <div class="stat"><strong>20–100+</strong><span>Team Sizes Led</span></div>
+        <div class="stat"><strong>APAC · EMEA · Americas</strong><span>Global Experience</span></div>
+        <div class="stat win"><strong>$45M+</strong><span>Data & AI portfolio wins through pre-sales and solutioning</span></div>
+      </div>
+    </section>
+
+    <section class="content">
+      <aside>
+        <div class="panel soft">
+          <h2>Professional Summary</h2>
+          <p>I lead enterprise data strategy, architecture, and delivery across regions, helping organizations modernize data platforms, enable analytics at scale, and drive data-driven decisions.</p>
+          <ul>
+            <li>Cloud-first data platforms: Azure, Databricks, Fabric</li>
+            <li>Managed services, governance, and COE setup</li>
+            <li>Lakehouse, Data Mesh, MDM, data governance, and analytics engineering</li>
+            <li>Multi-country program leadership and executive stakeholder management</li>
+          </ul>
+        </div>
+
+        <div class="panel">
+          <h2>Core Leadership Capabilities</h2>
+          <ul class="cap-list">
+            <li>Managed Analytics & Data Engineering Delivery</li>
+            <li>Executive Client Engagement & Governance</li>
+            <li>Practice Building & Capability Development</li>
+            <li>Pre-Sales, Solutioning & Revenue Growth</li>
+            <li>Data Platform Strategy: Lakehouse, Fabric, Data Mesh</li>
+            <li>Financial Management, Budgeting & Cost Optimization</li>
+            <li>Risk, Compliance & Data Governance</li>
+            <li>Multi-Region Delivery Leadership</li>
+          </ul>
+        </div>
+
+        <div class="panel">
+          <h2>Platforms & Technologies</h2>
+          <div class="tech-grid">
+            <div class="tech">Microsoft Azure</div>
+            <div class="tech">Microsoft Fabric</div>
+            <div class="tech">Databricks</div>
+            <div class="tech">Azure Synapse</div>
+            <div class="tech">Power BI</div>
+            <div class="tech">SQL Server</div>
+            <div class="tech">Snowflake</div>
+            <div class="tech">Data Vault</div>
+            <div class="tech">Data Mesh</div>
+            <div class="tech">MDM</div>
+            <div class="tech">Knowledge Graphs</div>
+            <div class="tech">Graph Databases</div>
+            <div class="tech">Python / Spark</div>
+            <div class="tech">Azure DevOps</div>
+          </div>
+        </div>
+      </aside>
+
+      <section>
+        <div class="panel">
+          <h2>Professional Journey</h2>
+          <div class="timeline">
+            <div class="job">
+              <div class="job-head"><div class="company-wrap"><img class="company-logo" src="https://logo.clearbit.com/greendatacenter.de" alt="Green Data Center logo" /><div class="company">Green Data Center — DACH Region</div></div><div class="date">Aug 2024 – Current</div></div>
+              <div class="title">Senior Enterprise Architect / CIO/CTO Advisory</div>
+              <ul><li>Led enterprise data strategy across 9 data centers in Germany, Austria, and Switzerland.</li><li>Secured CHF 5M multi-year program funding for a modern Lakehouse architecture.</li><li>Established centralized Azure Fabric / Databricks platform for scalable analytics.</li></ul>
+            </div>
+            <div class="job">
+              <div class="job-head"><div class="company-wrap"><img class="company-logo" src="https://logo.clearbit.com/jti.com" alt="JTI logo" /><div class="company">Japan Tobacco International — APAC</div></div><div class="date">Apr 2022 – Dec 2023</div></div>
+              <div class="title">IT Business Solutions Senior Manager, Data & Analytics</div>
+              <ul><li>Led APAC analytics and data engineering delivery for market transformation.</li><li>Executed a 2-year data modernization roadmap with 100% adoption in 12 months.</li><li>Improved reporting and data integration efficiency by 50%+.</li></ul>
+            </div>
+            <div class="job">
+              <div class="job-head"><div class="company-wrap"><img class="company-logo" src="https://logo.clearbit.com/accenture.com" alt="Accenture logo" /><div class="company">Accenture — EU & GTM</div></div><div class="date">Jun 2021 – Mar 2022</div></div>
+              <div class="title">Associate Director – Data & AI / Technical Architect</div>
+              <ul><li>Contributed to $45M+ Data & AI portfolio wins.</li><li>Led GTM strategy and solution architecture for enterprise data and AI initiatives.</li><li>Co-chaired Architecture Review Board to enforce governance and delivery standards.</li></ul>
+            </div>
+            <div class="job">
+              <div class="job-head"><div class="company-wrap"><img class="company-logo" src="https://logo.clearbit.com/thakralone.com" alt="Thakral One logo" /><div class="company">Thakral One — Indochina</div></div><div class="date">Sep 2020 – Dec 2020</div></div>
+              <div class="title">Principal Technical Consultant / Practice Lead</div>
+              <ul><li>Led regional data and analytics practice across delivery and pre-sales.</li><li>Built reusable frameworks and IP for analytics, AML, and data platform services.</li></ul>
+            </div>
+            <div class="job">
+              <div class="job-head"><div class="company-wrap"><img class="company-logo" src="https://logo.clearbit.com/axa.com" alt="AXA logo" /><div class="company">AXA Group Operations — Asia Markets</div></div><div class="date">Nov 2017 – Aug 2020</div></div>
+              <div class="title">Regional Solutions Architect, Data & Analytics</div>
+              <ul><li>Designed analytics platforms across 6 Asian markets.</li><li>Delivered enterprise data lake and MDM strategy for customer 360 and analytics.</li></ul>
+            </div>
+            <div class="job">
+              <div class="job-head"><div class="company-wrap"><img class="company-logo" src="https://logo.clearbit.com/unilever.com" alt="Unilever logo" /><div class="company">Unilever</div></div><div class="date">Dec 2015 – Oct 2016</div></div>
+              <div class="title">Global Service Delivery Manager, Data & Analytics</div>
+              <ul><li>Led global managed analytics services across 60+ countries.</li><li>Managed Accenture, IBM, and Capgemini vendor ecosystem.</li></ul>
+            </div>
+            <div class="job">
+              <div class="job-head"><div class="company-wrap"><img class="company-logo" src="https://logo.clearbit.com/teradata.com" alt="Teradata logo" /><div class="company">Teradata — Americas</div></div><div class="date">Nov 2010 – Sep 2015</div></div>
+              <div class="title">Practice Leader / Lead Technical Consultant</div>
+              <ul><li>Built and scaled Global Data Migration COE with 40+ specialists.</li><li>Led 24/7 managed services across the Americas for enterprise clients.</li></ul>
+            </div>
+            <div class="job">
+              <div class="job-head"><div class="company-wrap"><img class="company-logo" src="https://logo.clearbit.com/siemens.com" alt="Siemens logo" /><div class="company">Earlier Career — Multi-Industry Leadership</div></div><div class="date">1993 – 2010</div></div>
+              <div class="title">Infrastructure, Database, Operations & Technology Leadership</div>
+              <ul><li>Held progressive leadership roles across IT operations, infrastructure, database management, and enterprise support functions.</li><li>Worked with organizations including OSM Maritime, Teleperformance, Siemens, and other global enterprises.</li><li>Built foundational expertise in enterprise systems, operations management, infrastructure engineering, and large-scale IT service delivery.</li></ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="impact-bar">
+        <div class="impact"><strong>$45M+</strong><span>Data & AI portfolio wins</span></div>
+        <div class="impact"><strong>9</strong><span>DACH data centers transformed</span></div>
+        <div class="impact"><strong>CHF 5M</strong><span>Multi-year program funding secured</span></div>
+        <div class="impact"><strong>50%+</strong><span>Reporting and integration efficiency improvement</span></div>
+        <div class="impact"><strong>20–100+</strong><span>High-performing teams led</span></div>
+        <div class="impact"><strong>60+</strong><span>Countries supported through managed analytics</span></div>
+      </div>
+
+      <div class="bottom">
+        <div class="panel">
+          <h2>Expertise Areas</h2>
+          <div class="expertise-chart">
+            <div class="pill">Enterprise Data Strategy</div>
+            <div class="pill">Data Modernization</div>
+            <div class="pill">Lakehouse</div>
+            <div class="pill">Managed Services</div>
+            <div class="pill">Cloud Platforms</div>
+            <div class="pill">Governance & Risk</div>
+            <div class="pill">Analytics Engineering</div>
+            <div class="pill">Operating Models</div>
+          </div>
+        </div>
+        <div class="panel">
+          <h2>I Work With</h2>
+          <ul class="cap-list">
+            <li>Board & C-Level Executives</li>
+            <li>Business Stakeholders</li>
+            <li>Enterprise Architecture Teams</li>
+            <li>Data & Analytics Engineers</li>
+            <li>Vendors & Technology Partners</li>
+          </ul>
+        </div>
+        <div class="panel">
+          <h2>Methodologies</h2>
+          <ul>
+            <li>TOGAF 10th Edition, ArchiMate 3.1</li>
+            <li>Agile, Kanban, SAFe</li>
+            <li>DAMA, ITIL, COBIT</li>
+            <li>Microsoft Cloud Adoption Framework</li>
+            <li>DevOps & CI/CD Practices</li>
+            <li>Domain-Driven & Event-Driven Architecture</li>
+            <li>Data Mesh & Medallion Architecture</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="footer">
+      <div class="panel">
+        <h2>Education</h2>
+        <p><strong>BS Information Systems</strong><br />De La Salle-College of Saint Benilde<br />Expected 2027</p>
+        <p><strong>MIT Sloan Executive Education</strong><br />Applied Business Analytics</p>
+      </div>
+      <div class="panel">
+        <h2>I Am Passionate About</h2>
+        <p>Using data and technology to solve complex business problems, build modern data platforms, mentor teams, and drive transformation that creates measurable and lasting impact.</p>
+      </div>
+      <div class="quote">
+        “Turning data into decisions. Building platforms for scale. Leading with purpose.”
+      </div>
+    </section>
+  </main>
+</body>
+</html>
